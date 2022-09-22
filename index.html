@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles.css" />
+		<title>Dashboard</title>
+	</head>
+	<body>
+		<div class="header">
+			<p class="header__title">
+				<span>Tarea obligatoria -</span> Gestor de usuarios
+			</p>
+		</div>
+		<div class="main">
+			<div class="listado">
+				<h1 class="listado__title">Listado de usuarios</h1>
+        
+        <div class="listado__controls">
+          <input type="text" id="searchUsuario" placeholder="Buscar usuario por correo..."/>
+          
+          <div>
+            <button class="listado__controls__button listado__controls__button_far" id="firstPage">&#8592;</button>
+            <button class="listado__controls__button" id="prevPage">Anterior</button>
+            <button class="listado__controls__button" id="nextPage">Siguiente</button>
+            <button class="listado__controls__button listado__controls__button_far" id="lastPage">&#8594;</button>
+          </div>
+        </div>
+				<table>
+					<thead>
+						<tr>
+              <th>Nombre</th>
+							<th>Apellido</th>
+							<th>Fecha de nacimiento <span id="orderByFechaNac">&#8595</span></th>
+							<th>*Correo</th>
+							<th>Direccion</th>
+							<th>-- Acciones --</th>
+						</tr>
+					</thead>
+					<tbody id="listado_usuarios"></tbody>
+				</table>
+          <span class="listado__pagination" id="pagination"></span>
+				<div class="loader" id="loader"></div>
+			</div>
+
+			<div class="formulario">
+				<h1 class="formulario__title">Formulario de registro</h1>
+				<form style="width: 100%">
+					<div class="formulario_group">
+						<label for="input__nombre">Nombre</label>
+						<input type="text" id="input__nombre" maxlength="123" required />
+						<span id="error__nombre" class="hidden"
+							>El nombre es obligatorio</span
+						><span id="error__nombre_tamanio" class="hidden"
+							>El nombre no puede superar los 12 caracteres</span
+						>
+					</div>
+					<div class="formulario_group">
+						<label for="input__apellido">Apellido</label>
+						<input type="text" id="input__apellido" maxlength="12" required />
+						<span id="error__apellido" class="hidden"
+							>El apellido es obligatorio</span
+						><span id="error__apellido_tamanio" class="hidden"
+							>El apellido no puede superar los 12 caracteres</span
+						>
+					</div>
+					<div class="formulario_group">
+						<label for="input__fechaNac">Fecha de nacimiento</label>
+						<input type="date" id="input__fechaNac" required />
+						<span id="error__fechaNac" class="hidden"
+							>Se debe ser mayor de 18 años</span
+						><span id="error__fechaNac_formato" class="hidden"
+							>La fecha ingresada no es valida</span
+						>
+					</div>
+					<div class="formulario_group">
+						<label for="input__correo">Correo</label>
+						<input type="email" id="input__correo" required />
+						<span id="error__correo" class="hidden"
+							>El correo es obligatorio</span
+						>
+						<span id="error__correo_formato" class="hidden"
+							>El formato del correo no es valido</span
+						>
+						<span id="error__correo_repetido" class="hidden"
+							>El correo ya se encuentra registrado</span
+						>
+					</div>
+					<div class="formulario_group">
+						<label for="input__direccion">Direccion</label>
+						<input type="text" id="input__direccion" max="50" required />
+						<span id="error__direccion" class="hidden"
+							>La direccion es obligatoria</span
+						><span id="error__direccion_tamanio" class="hidden"
+							>La direccion no puede superar los 50 caracteres</span
+						>
+					</div>
+					<div class="formulario_group">
+						<button id="formulario__button" type="button">
+							Agregar Usuario
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+    <span id="copyright">Made by Esteban Rosano 2022</span>
+
+		<!-- jquery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="./listado.js"></script>
+		<script src="./formulario.js"></script>
+	</body>
+</html>
